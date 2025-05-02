@@ -6,6 +6,9 @@ type CartStore = {
   cart: TCartItem[];
   totalPrice: number;
   isOpen: boolean;
+  couponErrorMessage: string;
+  setCouponErrorMessage: (message: string) => void;
+
   setTotalPrice: (totalPrice: number) => void;
   addToCart: (product: TCartItem) => void;
   addQuantity: (cartItemID: string) => void;
@@ -22,6 +25,10 @@ export const useCartStore = create<CartStore>()(
       cart: [],
       isOpen: false,
       totalPrice: 0,
+      couponErrorMessage: "",
+      setCouponErrorMessage: (message) => {
+        set(() => ({ couponErrorMessage: message }));
+      },
 
       setTotalPrice: (totalPrice) => set(() => ({ totalPrice: totalPrice })),
       addQuantity: (cartItemID) =>

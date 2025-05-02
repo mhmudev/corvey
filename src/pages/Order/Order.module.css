@@ -155,6 +155,9 @@ h3 {
   font-family: inherit;
   border: none;
   width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 hr {

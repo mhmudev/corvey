@@ -2,6 +2,7 @@ import styles from "./Order.module.css";
 import { useCartStore } from "../../store/cartStore";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import BtnSpinner from "../../components/UI/BtnSpinner/BtnSpinner";
 
 export default function Order() {
   const totalPrice = useCartStore((state) => state.totalPrice);
@@ -205,7 +206,7 @@ export default function Order() {
                 disabled={isSubmitting}
                 className={styles.checkoutButton}
               >
-                {isSubmitting ? "Processing..." : "Proceed to checkout"}
+                {isSubmitting ? <BtnSpinner /> : "Proceed to checkout"}
               </button>
               <div className={styles.paymentSection}>
                 <div className={styles.paymentMethods}>
