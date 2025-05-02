@@ -23,7 +23,7 @@ export const useProductsStore = create<ProductsStore>((set, get) => ({
   fetchProducts: async () => {
     try {
       const response = await fetch(
-        "http://https://corvey-backend-production.up.railway.app:5000/api/products"
+        "https://corvey-backend-production.up.railway.app/api/products"
       );
       if (!response.ok) {
         throw new Error();
@@ -40,7 +40,7 @@ export const useProductsStore = create<ProductsStore>((set, get) => ({
   fetchProductBySlug: async (slug: string) => {
     try {
       const response = await fetch(
-        `http://https://corvey-backend-production.up.railway.app:5000/api/products/${slug}`
+        `https://corvey-backend-production.up.railway.app/api/products/${slug}`
       );
       if (!response.ok) {
         throw new Error();

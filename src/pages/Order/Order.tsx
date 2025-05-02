@@ -54,7 +54,7 @@ export default function Order() {
 
     try {
       const response = await fetch(
-        "http://https://corvey-backend-production.up.railway.app:5000/api/orders",
+        "https://corvey-backend-production.up.railway.app/api/orders",
         {
           method: "POST",
           headers: {
