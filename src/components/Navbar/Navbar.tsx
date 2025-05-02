@@ -32,13 +32,14 @@ export default function Navbar() {
       </div>
 
       <div className={styles.right}>
-        <FiSearch className={styles.icon} />
-        {/* <Link to="/cart"> */}
+        <Link to="/cart">
+          <FiSearch className={styles.icon} />
+        </Link>
+
         <div className={styles.cartIcon} onClick={() => setIsOpen(true)}>
           <FiShoppingCart className={styles.icon} />
           <p className={styles.cartQuantity}>{cartItems.length}</p>
         </div>
-        {/* </Link> */}
       </div>
     </nav>
   );

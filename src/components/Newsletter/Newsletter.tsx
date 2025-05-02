@@ -1,6 +1,7 @@
 import { useNewsletterStore } from "../../store/newsletterStore";
 import styles from "./Newsletter.module.css";
 import BtnSpinner from "../UI/BtnSpinner/BtnSpinner";
+import { useEffect } from "react";
 
 export default function Newsletter() {
   const {
@@ -14,6 +15,16 @@ export default function Newsletter() {
     setIsLoading,
     resetMessages,
   } = useNewsletterStore();
+
+  useEffect(() => {
+    if (successMessage || errorMessage) {
+      const timer = setTimeout(() => {
+        setErrorMessage("");
+        setSuccessMessage("");
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [successMessage, errorMessage]);
 
   const handleSignup = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

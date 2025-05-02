@@ -95,7 +95,8 @@ export const useCartStore = create<CartStore>()(
         );
 
         if (!response.ok) {
-          throw new Error("Network response was not ok");
+          const errorData = await response.json();
+          throw new Error(errorData.error || "Failed to subscribe.");
         }
 
         const data = await response.json();
