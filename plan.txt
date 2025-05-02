@@ -1,0 +1,35 @@
+build api using express js and mongo db
+
+two models : product, order
+
+product:   
+  id: string;
+  sizes: string[];
+  colors: string[];
+  description: string;
+  quantity: number;
+  price: number;
+  title: string;
+  images: string[];
+  discount: number;
+  slug: title slug: string
+
+
+order:
+    products: product[],
+    totalOrderPrice: number,
+    paymentMethod: ["COD"]
+
+
+and i want also after product added to cart minus one from product quantity
+and i want also add coupoun codes 
+and if there is discount calculate the new price of product
+
+organize this project structure
+
+
+========================================================================================
+
+cartItem = {
+  color,size,quantity by default 1, product image, product price, product price
+}

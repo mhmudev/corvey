@@ -1,0 +1,39 @@
+.features {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  padding: 1.3rem 2rem;
+  margin-bottom: 2rem;
+}
+
+.feature {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+  background-color: #f8f8f8;
+  border-radius: 0.4rem;
+  gap: 0.5rem;
+}
+
+.feature p {
+  text-align: center;
+}
+
+.icon {
+  font-size: 2rem;
+}
+
+@media (max-width: 1024px) {
+  .features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .features {
+    grid-template-columns: 1fr;
+    padding: 1.3rem 1rem;
+  }
+}

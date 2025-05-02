@@ -1,0 +1,152 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 40%;
+  height: 100%;
+  background: #fff;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+  transform: translateX(100%);
+  transition: transform 0.5s ease-in-out;
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.drawer.open {
+  transform: translateX(0);
+}
+
+.drawerHeader {
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 0.6rem;
+}
+
+.closeIcon {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.title {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.items {
+  margin-top: 1rem;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.image {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  border-radius: 8px;
+  margin-right: 10px;
+}
+
+.details {
+  flex: 1;
+}
+
+.name {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.info {
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.quantity {
+  font-size: 0.85rem;
+  color: #333;
+  margin-top: 4px;
+}
+
+.price {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.summary {
+  border-top: 1px solid #ddd;
+  padding-top: 15px;
+}
+
+.totalRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.checkoutButton {
+  width: 100%;
+  padding: 12px;
+  background-color: #111;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-family: inherit;
+}
+
+.checkoutButton:hover {
+  background-color: #000;
+}
+
+.addQuantity {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.addQuantity p {
+  font-size: 0.8rem;
+  color: #333;
+}
+
+.addQuantity button {
+  padding: 0 0.3rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  font-family: inherit;
+  border: 1px solid #eee;
+  background-color: #d1d5db45;
+  border-radius: 0.3rem;
+  cursor: pointer;
+}
+
+@media (max-width: 640px) {
+  .drawer {
+    width: 100%;
+  }
+}
