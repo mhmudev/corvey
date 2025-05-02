@@ -53,18 +53,21 @@ export default function Order() {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("http://192.168.1.6:5000/api/orders", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          products,
-          paymentMethod: "COD",
-          couponCode: coupon,
-          person: { firstName, lastName, email, phone, city, street, gov },
-        }),
-      });
+      const response = await fetch(
+        "http://https://corvey-backend-production.up.railway.app:5000/api/orders",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            products,
+            paymentMethod: "COD",
+            couponCode: coupon,
+            person: { firstName, lastName, email, phone, city, street, gov },
+          }),
+        }
+      );
 
       if (!response.ok) throw new Error("Network response was not ok");
 

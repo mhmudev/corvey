@@ -22,7 +22,9 @@ export const useProductsStore = create<ProductsStore>((set, get) => ({
 
   fetchProducts: async () => {
     try {
-      const response = await fetch("http://192.168.1.6:5000/api/products");
+      const response = await fetch(
+        "http://https://corvey-backend-production.up.railway.app:5000/api/products"
+      );
       if (!response.ok) {
         throw new Error();
       }
@@ -38,7 +40,7 @@ export const useProductsStore = create<ProductsStore>((set, get) => ({
   fetchProductBySlug: async (slug: string) => {
     try {
       const response = await fetch(
-        `http://192.168.1.6:5000/api/products/${slug}`
+        `http://https://corvey-backend-production.up.railway.app:5000/api/products/${slug}`
       );
       if (!response.ok) {
         throw new Error();

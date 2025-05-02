@@ -75,7 +75,7 @@ export const useCartStore = create<CartStore>()(
         })),
       validateCoupon: async (coupon) => {
         const response = await fetch(
-          "http://192.168.1.6:5000/api/coupons/validate",
+          "http://https://corvey-backend-production.up.railway.app:5000/api/coupons/validate",
           {
             method: "POST",
             headers: {
