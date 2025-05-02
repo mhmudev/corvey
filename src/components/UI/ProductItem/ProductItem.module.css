@@ -51,6 +51,12 @@
   font-size: 0.6rem;
 }
 
+.bottomInfo {
+  display: flex;
+  flex-direction: column;
+  min-height: 4rem;
+}
+
 @media (max-width: 640px) {
   .product img {
     width: 100%;

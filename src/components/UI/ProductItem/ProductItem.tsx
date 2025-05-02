@@ -15,6 +15,7 @@ export default function ProductItem({ product }: ProductItemProps) {
           <p>out of stock</p>
         </div>
       )}
+      <div className={styles.bottomInfo}>
       <h4>{product.title}</h4>
       {product.discount > 0 && (
         <p className={styles.discount}>
@@ -29,6 +30,7 @@ export default function ProductItem({ product }: ProductItemProps) {
       >
         EGP {product.price}
       </p>
+      </div>
     </Link>
   );
 }
