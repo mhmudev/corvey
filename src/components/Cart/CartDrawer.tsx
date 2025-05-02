@@ -16,7 +16,12 @@ const CartDrawer = () => {
 
   useEffect(() => {
     setTotalPrice(
-      cartItems?.reduce((total, item) => total + item.price * item.quantity, 0)
+      cartItems?.reduce(
+        (total, item) =>
+          total +
+          (item.price - (item.price * item.discount) / 100) * item.quantity,
+        0
+      )
     );
   }, [cartItems]);
 
@@ -62,7 +67,11 @@ const CartDrawer = () => {
                   </button>
                 </div>
               </div>
-              <div className={styles.price}>${item.price * item.quantity}</div>
+              <div className={styles.price}>
+                $
+                {(item.price - (item.price * item.discount) / 100) *
+                  item.quantity}
+              </div>
             </div>
           ))}
         </div>

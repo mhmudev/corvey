@@ -49,6 +49,7 @@ const Product = function () {
       quantity: 1,
       image: product.images[0],
       title: product.title,
+      discount: product.discount,
     };
 
     if (selectedColor && selectedSize) {
@@ -76,7 +77,24 @@ const Product = function () {
       <div className={styles.productDetails}>
         {product.quantity <= 0 && <h3 className={styles.out}>out of stock</h3>}
         <h1 className={styles.productName}>{product.title}</h1>
-        <p className={styles.productPrice}>{product.price} EGP</p>
+        <div className={styles.price}>
+          {product.discount > 0 && (
+            <p className={styles.discount}>
+              EGP {product.price - (product.price * product.discount) / 100}
+              <span className={styles.discountValue}>
+                {" "}
+                -{product.discount}%
+              </span>
+            </p>
+          )}
+          <p
+            className={`${styles.productPrice} ${
+              product.discount > 0 ? styles.oldPrice : ""
+            }`}
+          >
+            EGP {product.price}
+          </p>
+        </div>
         <p className={styles.productDescription}>{product.description}</p>
         <div className={styles.sizeSelector}>
           <p>Select Size</p>

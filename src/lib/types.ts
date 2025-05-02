@@ -20,4 +20,5 @@ export type TCartItem = {
   quantity: number;
   image: string;
   color: string;
+  discount: number;
 };
