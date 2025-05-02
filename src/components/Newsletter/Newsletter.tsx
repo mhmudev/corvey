@@ -1,21 +1,27 @@
-import { useState } from "react";
+import { useNewsletterStore } from "../../store/newsletterStore";
 import styles from "./Newsletter.module.css";
 import BtnSpinner from "../UI/BtnSpinner/BtnSpinner";
 
 export default function Newsletter() {
-  const [emailInput, setEmailInput] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
-  const [successMessage, setSuccessMessage] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
+  const {
+    emailInput,
+    errorMessage,
+    successMessage,
+    isLoading,
+    setEmailInput,
+    setErrorMessage,
+    setSuccessMessage,
+    setIsLoading,
+    resetMessages,
+  } = useNewsletterStore();
 
   const handleSignup = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSuccessMessage("");
-    setErrorMessage("");
+    resetMessages();
     try {
       setIsLoading(true);
       const response = await fetch(
-        "http://localhost:5000/api/newsfeed/subscribe",
+        "https://corvey-backend-production.up.railway.app/api/newsfeed/subscribe",
         {
           method: "POST",
           headers: {
@@ -34,16 +40,14 @@ export default function Newsletter() {
         setSuccessMessage("Thanks for subscribing!, please check your mail");
         setEmailInput("");
       }
-
-      setIsLoading(false);
     } catch (error) {
       if (error instanceof Error) {
         setErrorMessage(error.message);
-        setIsLoading(false);
       } else {
         setErrorMessage("An unknown error occurred.");
-        setIsLoading(false);
       }
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -51,14 +55,12 @@ export default function Newsletter() {
     <section className={styles.newsletter}>
       <div className={styles.content}>
         <h2 className={styles.title}>
-          Join our newsletter. Enjoy big discounts.{" "}
+          Join our newsletter. Enjoy big discounts.
         </h2>
         <p className={styles.paragraph}>Hear what they say about us</p>
         <form onSubmit={handleSignup}>
           <input
             type="email"
-            name=""
-            id=""
             value={emailInput}
             onChange={(e) => setEmailInput(e.target.value)}
             placeholder="mahmoud@gmail.com"

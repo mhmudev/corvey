@@ -113,6 +113,10 @@ p {
   margin-top: 1.25rem;
 }
 
+button:disabled {
+  cursor: not-allowed;
+}
+
 @media (max-width: 640px) {
   .productImagesSection {
     flex-direction: row;

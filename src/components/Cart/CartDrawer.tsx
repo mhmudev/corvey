@@ -75,6 +75,7 @@ const CartDrawer = () => {
 
           <Link to="/order">
             <button
+              disabled={cartItems.length <= 0}
               onClick={() => setIsOpen(false)}
               className={styles.checkoutButton}
             >

@@ -83,6 +83,7 @@ const Product = function () {
           <div className={styles.sizeOptions}>
             {product.sizes.map((item, index) => (
               <button
+                disabled={product.quantity <= 0}
                 key={index}
                 onClick={() => {
                   setSelectedSize(item);
@@ -102,6 +103,7 @@ const Product = function () {
           <div className={styles.sizeOptions}>
             {product.colors.map((item, index) => (
               <button
+                disabled={product.quantity <= 0}
                 key={index}
                 onClick={() => {
                   setSelectedColor(item);

@@ -145,6 +145,10 @@
   cursor: pointer;
 }
 
+button:disabled {
+  cursor: not-allowed;
+}
+
 @media (max-width: 640px) {
   .drawer {
     width: 100%;
